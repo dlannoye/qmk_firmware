@@ -77,15 +77,38 @@ led_setup_t leds_black_with_red_stripe[] = {
     { .end = 1 },
 };
 
+
+//Miami no scrolling
+led_setup_t leds_miami_ns[] = {
+    { .hs = 0,      .he = 16.67,  .rs = 0,   .re = 0,   .gs = 255, .ge = 64,  .bs = 255,  .be = 255,  .ef = EF_OVER}, // Blue-Green 
+    { .hs = 16.67,  .he = 33.33,  .rs = 0,   .re = 255, .gs = 64,  .ge = 0,   .bs = 255,  .be = 255,  .ef = EF_OVER}, // Blue
+    { .hs = 33.33,  .he = 50,     .rs = 255, .re = 255, .gs = 0,   .ge = 0,   .bs = 255,  .be = 128,  .ef = EF_OVER}, // Blue-Red
+    { .hs = 50,     .he = 66.67,  .rs = 255, .re = 255, .gs = 0,   .ge = 0,   .bs = 128,  .be = 255,  .ef = EF_OVER}, 
+    { .hs = 66.67,  .he = 83.33,  .rs = 255, .re = 0,   .gs = 0,   .ge = 64,  .bs = 255,  .be = 255,  .ef = EF_OVER},
+    { .hs = 83.33,  .he = 100,    .rs = 0,   .re = 0,   .gs = 64,  .ge = 255, .bs = 255,  .be = 255,  .ef = EF_OVER}, 
+    { .end = 1 },                                                                                                    
+};
+
+//Miami scrolling
+led_setup_t leds_miami_s[] = {
+    { .hs = 0,      .he = 16.67,  .rs = 0,   .re = 0,   .gs = 255, .ge = 64,  .bs = 255,  .be = 255,  .ef = EF_OVER | EF_SCR_R}, // Blue-Green 
+    { .hs = 16.67,  .he = 33.33,  .rs = 0,   .re = 255, .gs = 64,  .ge = 0,   .bs = 255,  .be = 255,  .ef = EF_OVER | EF_SCR_R}, // Blue
+    { .hs = 33.33,  .he = 50,     .rs = 255, .re = 255, .gs = 0,   .ge = 0,   .bs = 255,  .be = 128,  .ef = EF_OVER | EF_SCR_R}, // Blue-Red
+    { .hs = 50,     .he = 66.67,  .rs = 255, .re = 255, .gs = 0,   .ge = 0,   .bs = 128,  .be = 255,  .ef = EF_OVER | EF_SCR_R}, 
+    { .hs = 66.67,  .he = 83.33,  .rs = 255, .re = 0,   .gs = 0,   .ge = 64,  .bs = 255,  .be = 255,  .ef = EF_OVER | EF_SCR_R},
+    { .hs = 83.33,  .he = 100,    .rs = 0,   .re = 0,   .gs = 64,  .ge = 255, .bs = 255,  .be = 255,  .ef = EF_OVER | EF_SCR_R}, 
+    { .end = 1 },                                                                                                    
+};
+
 //Rainbow no scrolling
 led_setup_t leds_rainbow_ns[] = {
-    { .hs = 0,      .he = 16.67,  .rs = 255, .re = 255, .gs = 0,   .ge = 255, .bs = 0,   .be = 0,   .ef = EF_OVER },
-    { .hs = 16.67,  .he = 33.33,  .rs = 255, .re = 0,   .gs = 255, .ge = 255, .bs = 0,   .be = 0,   .ef = EF_OVER },
-    { .hs = 33.33,  .he = 50,     .rs = 0,   .re = 0,   .gs = 255, .ge = 255, .bs = 0,   .be = 255, .ef = EF_OVER },
-    { .hs = 50,     .he = 66.67,  .rs = 0,   .re = 0,   .gs = 255, .ge = 0,   .bs = 255, .be = 255, .ef = EF_OVER },
-    { .hs = 66.67,  .he = 83.33,  .rs = 0,   .re = 255, .gs = 0,   .ge = 0,   .bs = 255, .be = 255, .ef = EF_OVER },
-    { .hs = 83.33,  .he = 100,    .rs = 255, .re = 255, .gs = 0,   .ge = 0,   .bs = 255, .be = 0,   .ef = EF_OVER },
-    { .end = 1 },
+    { .hs = 0,      .he = 16.67,  .rs = 255, .re = 255, .gs = 0,   .ge = 255, .bs = 0,   .be = 0,   .ef = EF_OVER }, // Red
+    { .hs = 16.67,  .he = 33.33,  .rs = 255, .re = 0,   .gs = 255, .ge = 255, .bs = 0,   .be = 0,   .ef = EF_OVER }, // Red-Green
+    { .hs = 33.33,  .he = 50,     .rs = 0,   .re = 0,   .gs = 255, .ge = 255, .bs = 0,   .be = 255, .ef = EF_OVER }, // Green
+    { .hs = 50,     .he = 66.67,  .rs = 0,   .re = 0,   .gs = 255, .ge = 0,   .bs = 255, .be = 255, .ef = EF_OVER }, // Blue-Green 
+    { .hs = 66.67,  .he = 83.33,  .rs = 0,   .re = 255, .gs = 0,   .ge = 0,   .bs = 255, .be = 255, .ef = EF_OVER }, // Blue
+    { .hs = 83.33,  .he = 100,    .rs = 255, .re = 255, .gs = 0,   .ge = 0,   .bs = 255, .be = 0,   .ef = EF_OVER }, // Blue-Red
+    { .end = 1 },                                                                                                    // Red
 };
 
 //Rainbow scrolling
@@ -104,8 +127,10 @@ led_setup_t leds_rainbow_s[] = {
 //Add the new animation name to the list below following its format
 
 void *led_setups[] = {
+    leds_miami_ns,
+    leds_miami_s,    
     leds_rainbow_s,
-    leds_rainbow_ns,
+    leds_rainbow_ns,    
     leds_teal_salmon,
     leds_yellow,
     leds_red,
